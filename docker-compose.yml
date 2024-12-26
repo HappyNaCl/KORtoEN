@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: ./Frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - ocr
+      - translate
+    environment:
+      - VITE_OCR_API=http://localhost:5000
+      - VITE_TRANSLATE_API=http://localhost:5001
+    networks:
+      - aolai_network
+
+  ocr:
+    build:
+      context: ./Backend/ocr
+    ports:
+      - "5000:5000"
+    networks:
+      - aolai_network
+
+  translate:
+    build:
+      context: ./Backend/translate
+    ports:
+      - "5001:5000"
+    networks:
+      - aolai_network
+
+networks:
+  aolai_network:
+    driver: bridge

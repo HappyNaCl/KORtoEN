@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KORToEN</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="title" id="title">KORToEN - Korean Translator</div>
+        <!-- <div class="info">Upload an image to extract korean text and translate it</div> -->
+        <div id="theme-toggle"></div>
+      </div>
+    </header>
+
+    <div class="column">
+      <div class="left-container">
+        <div class="container">
+          <div class="container-top">
+            <div class="file">
+              <input type="file" id="fileInput" accept="image/*" />
+              <label for="fileInput">Browse</label>
+              <span id="fileName">No file chosen, yet.</span>
+            </div>
+            <button id="uploadBtn">Process</button>
+          </div>
+          <div id="checkbox-container"><input type="checkbox" id="document-checkbox">Document?</input></div>
+          <div class="result" id="image-result"></div>
+        </div>
+
+        <div class="container">
+          <div id="guide">Step-by-step guide to using KORToEN</div>
+          <ul id="list">
+            <li>
+              Click the 'Browse' button to select the image containing the text
+              you wish to extract.
+            </li>
+            <li>
+              Once the image is selected, click the 'Process' button to initiate
+              the processing.
+            </li>
+            <li>
+              The website will employ OCR technology to extract the text from
+              the uploaded image.
+            </li>
+            <li>
+              The extracted text will then be translated into English using the
+              Google Translate API.
+            </li>
+            <li>
+              You can view, copy, or download the translated text once the
+              process is complete.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="right-container">
+        <div class="result-container">
+          <h3 class="resultTitle">Hangul Extraction</h3>
+          <div class="result">
+            <div class="loader"></div>
+            <div class="resultText" id="hangul-ext">No text yet..!</div>
+          </div>
+        </div>
+
+        <!-- <div class="line"></div> -->
+        <div class="result-container">
+          <h3 class="resultTitle">English Translation</h3>
+          <div class="result">
+            <div class="loader"></div>
+            <div class="resultText" id="english-ext">No text yet...!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>Brenda Calista Haryanto | Willsen Wiratan | Yudhistira</footer>
+    <script defer type="module" src="./src/main.js"></script>
+  </body>
+</html>
